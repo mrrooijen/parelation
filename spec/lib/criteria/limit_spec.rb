@@ -13,7 +13,9 @@ describe Parelation::Criteria::Limit do
   end
 
   it "should add criteria to the chain" do
-    expect(klass.new(Ticket.all, "limit", "40").call.to_sql)
-      .to eq(%Q{SELECT  "tickets".* FROM "tickets"  LIMIT 40})
+    criteria = klass.new(Ticket.all, "limit", "40").call
+    ar_query = Ticket.limit(40)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 end

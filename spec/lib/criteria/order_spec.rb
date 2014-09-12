@@ -13,24 +13,24 @@ describe Parelation::Criteria::Order do
   end
 
   it "should add acending order criteria to the chain" do
-    expect(klass.new(Ticket.all, "order", "created_at:asc").call.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"   } +
-             %Q{ORDER BY "tickets"."created_at" ASC})
+    criteria = klass.new(Ticket.all, "order", "created_at:asc").call
+    ar_query = Ticket.order(created_at: :asc)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 
   it "should add descending order criteria to the chain" do
-    expect(klass.new(Ticket.all, "order", "created_at:desc").call.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"   } +
-             %Q{ORDER BY "tickets"."created_at" DESC})
+    criteria = klass.new(Ticket.all, "order", "created_at:desc").call
+    ar_query = Ticket.order(created_at: :desc)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 
-  it "should combined multiple asc and desc order criteria" do
+  it "should combine multiple asc and desc order criteria" do
     orders = %w[created_at:desc name:asc updated_at:desc message:asc]
-    expect(klass.new(Ticket.all, "order", orders).call.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"   } +
-             %Q{ORDER BY "tickets"."created_at" DESC, } +
-             %Q{"tickets"."name" ASC, } +
-             %Q{"tickets"."updated_at" DESC, } +
-             %Q{"tickets"."message" ASC})
+    criteria = klass.new(Ticket.all, "order", orders).call
+    ar_query = Ticket.order(created_at: :desc, name: :asc, updated_at: :desc, message: :asc)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 end

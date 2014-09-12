@@ -13,7 +13,9 @@ describe Parelation::Criteria::Select do
   end
 
   it "should add criteria to the chain" do
-    expect(klass.new(Ticket.all, "select", ["id", "name"]).call.to_sql)
-      .to eq(%Q{SELECT "tickets"."id", "tickets"."name" FROM "tickets"})
+    criteria = klass.new(Ticket.all, "select", ["id", "name"]).call
+    ar_query = Ticket.all.select(:id, :name)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 end

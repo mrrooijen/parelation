@@ -22,19 +22,24 @@ describe Parelation::Applier do
       "offset" => "100"
     }
 
-    expect(klass.new(Project.create.tickets, params).apply.to_sql)
-      .to eq(%Q{SELECT  "tickets"."id", "tickets"."name", } +
-             %Q{"tickets"."state", "tickets"."message" FROM "tickets"  } +
-             %Q{WHERE "tickets"."project_id" = ? AND "tickets"."state" } +
-             %Q{IN ('open', 'pending') AND ("tickets"."state" != 'closed') } +
-             %Q{AND ("tickets".'created_at' > '2014-01-01 00:00:00.000000') } +
-             %Q{AND ("tickets".'updated_at' >= '2014-01-01 00:00:00.000000') } +
-             %Q{AND ("tickets".'created_at' < '2014-01-01 01:00:00.000000') } +
-             %Q{AND ("tickets".'updated_at' <= '2014-01-01 01:00:00.000000') } +
-             %Q{AND ("tickets"."name" LIKE '%ruby on rails%' } +
-             %Q{OR "tickets"."message" LIKE '%ruby on rails%')  } +
-             %Q{ORDER BY "tickets"."created_at" DESC, } +
-             %Q{"tickets"."name" ASC LIMIT 50 OFFSET 100})
+    criteria = klass.new(Project.create.tickets, params).apply
+    ar_query = Project.create.tickets
+      .select(:id, :name, :state, :message)
+      .where(state: ["open", "pending"])
+      .where.not(state: "closed")
+      .where(%Q{"tickets".'created_at' > ?}, "2014-01-01 00:00:00.000000")
+      .where(%Q{"tickets".'updated_at' >= ?}, "2014-01-01 00:00:00.000000")
+      .where(%Q{"tickets".'created_at' < ?}, "2014-01-01 01:00:00.000000")
+      .where(%Q{"tickets".'updated_at' <= ?}, "2014-01-01 01:00:00.000000")
+      .where(
+         %Q{"tickets"."name" LIKE ? OR "tickets"."message" LIKE ?},
+         "%ruby on rails%", "%ruby on rails%"
+      )
+      .order(created_at: :desc, name: :asc)
+      .limit(50)
+      .offset(100)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 
   it "raise an exception if parameter data is invalid" do

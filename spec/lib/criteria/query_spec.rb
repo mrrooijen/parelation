@@ -13,17 +13,19 @@ describe Parelation::Criteria::Query do
   end
 
   it "should add single-column criteria to the chain" do
-    value = { "ruby on rails" => "name" }
-    expect(klass.new(Ticket.all, "query", value).call.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"  } +
-             %Q{WHERE ("tickets"."name" LIKE '%ruby on rails%')})
+    criteria = klass.new(Ticket.all, "query", { "ruby on rails" => "name" }).call
+    ar_query = Ticket.where(%Q{"tickets"."name" LIKE ?}, "%ruby on rails%")
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 
   it "should add multi-column criteria to the chain" do
-    value = { "ruby on rails" => ["name", "message"] }
-    expect(klass.new(Ticket.all, "query", value).call.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"  } +
-             %Q{WHERE ("tickets"."name" LIKE '%ruby on rails%' } +
-             %Q{OR "tickets"."message" LIKE '%ruby on rails%')})
+    criteria = klass.new(Ticket.all, "query", { "ruby on rails" => ["name", "message"] }).call
+    ar_query = Ticket.where(
+      %Q{"tickets"."name" LIKE ? OR "tickets"."message" LIKE ?},
+      "%ruby on rails%", "%ruby on rails%"
+    )
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 end

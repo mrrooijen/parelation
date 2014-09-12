@@ -13,7 +13,9 @@ describe Parelation::Criteria::Offset do
   end
 
   it "should add criteria to the chain" do
-    expect(klass.new(Ticket.all, "offset", "80").call.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"  LIMIT -1 OFFSET 80})
+    criteria = klass.new(Ticket.all, "offset", "40").call
+    ar_query = Ticket.offset(40)
+
+    expect(criteria.to_sql).to eq(ar_query.to_sql)
   end
 end
