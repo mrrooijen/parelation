@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Michael van Rooijen"]
   spec.email = ["michael@vanrooijen.io"]
   spec.summary = %q{Translates HTTP parameters to ActiveRecord queries.}
-  spec.homepage = "https://github.com/meskyanichi/parelation"
+  spec.homepage = "http://meskyanichi.github.io/store_schema/"
   spec.license = "MIT"
 
   spec.files = `git ls-files -z`.split("\x0")
