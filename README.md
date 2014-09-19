@@ -5,7 +5,7 @@
 
 Parelation, for Rails/ActiveRecord 4.1.0+, allows you to query your ActiveRecord-mapped database easily, securely and quite flexibly using simple GET requests. It's used in your controller layer where it uses HTTP GET parameters to build on the ActiveRecord::Relation chain. This provides the client-side with the out-of-the-box flexibility to perform fairly dynamic queries without having to write boilerplate on the server.
 
-*Note: This library is being developed in parallel with [HireFire] and the public api is should be considered unstable for the time being. This notice will be removed once the api stabalizes.*
+This library was developed for- and extracted from [HireFire].
 
 ### Compatibility
 
