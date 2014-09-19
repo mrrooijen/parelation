@@ -5,4 +5,4 @@ rvm:
   - 2.1.2
   - rbx-2.2
 gemfile:
-  - gemfiles/4.1.gemfile
+  - .gemfiles/4.1.gemfile
