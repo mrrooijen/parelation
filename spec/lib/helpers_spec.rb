@@ -16,7 +16,6 @@ describe Parelation::Helpers do
 
   it "should parelate the ticket criteria chain" do
     expect(ExampleController.new.index.to_sql)
-      .to eq(%Q{SELECT "tickets".* FROM "tickets"  } +
-             %Q{WHERE "tickets"."state" = 'open'})
+      .to eq(Ticket.all.where(state: 'open').to_sql)
   end
 end
