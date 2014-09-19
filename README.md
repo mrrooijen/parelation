@@ -8,6 +8,8 @@ Parelation, for Rails/ActiveRecord 4.1.0+, allows you to query your ActiveRecord
 
 This library was developed for- and extracted from [HireFire].
 
+The documentation can be found on [RubyDoc].
+
 ### Compatibility
 
 - Rails/ActiveRecord 4.1.0+
@@ -286,4 +288,5 @@ Released under the MIT [License].
 [HireFire]: http://hirefire.io
 [Passing Specs]: https://travis-ci.org/meskyanichi/parelation
 [Code Climate Score]: https://codeclimate.com/github/meskyanichi/parelation
+[RubyDoc]: http://rubydoc.info/gems/parelation
 [License]: https://github.com/meskyanichi/parelation/blob/master/LICENSE
