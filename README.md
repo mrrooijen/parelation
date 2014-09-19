@@ -18,10 +18,10 @@ The documentation can be found on [RubyDoc].
 
 ### Installation
 
-Compile and install the gem from source.
+Add the gem to your Gemfile and run `bundle`.
 
 ```rb
-gem "parelation", github: "meskyanichi/parelation"
+gem "parelation"
 ```
 
 *This library won't be hosted on RubyGems.org until it's been tested more in development.*
