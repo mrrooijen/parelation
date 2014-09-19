@@ -288,5 +288,5 @@ Released under the MIT [License].
 [HireFire]: http://hirefire.io
 [Passing Specs]: https://travis-ci.org/meskyanichi/parelation
 [Code Climate Score]: https://codeclimate.com/github/meskyanichi/parelation
-[RubyDoc]: http://rubydoc.info/gems/parelation
+[RubyDoc]: http://rubydoc.info/github/meskyanichi/parelation/master/frames
 [License]: https://github.com/meskyanichi/parelation/blob/master/LICENSE
