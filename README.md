@@ -1,5 +1,6 @@
 # Parelation
 
+[![Gem Version](https://badge.fury.io/rb/parelation.svg)](http://badge.fury.io/rb/parelation)
 [![Code Climate](https://codeclimate.com/github/meskyanichi/parelation.png)](https://codeclimate.com/github/meskyanichi/parelation)
 [![Build Status](https://travis-ci.org/meskyanichi/parelation.svg)](https://travis-ci.org/meskyanichi/parelation)
 
