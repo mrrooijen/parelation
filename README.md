@@ -270,6 +270,12 @@ rspec spec
 rubycritic lib
 ```
 
+To run the local documentation server:
+
+```
+yard server --reload
+```
+
 Create a new branch and start hacking:
 
 ```
