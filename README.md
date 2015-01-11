@@ -286,7 +286,7 @@ Submit a pull request.
 
 ### Author / License
 
-Copyright (c) 2014 Michael van Rooijen ( [@meskyanichi] )<br />
+Copyright (c) 2015 Michael van Rooijen ( [@meskyanichi] )<br />
 Released under the MIT [License].
 
 [@meskyanichi]: https://twitter.com/meskyanichi
