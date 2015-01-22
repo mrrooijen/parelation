@@ -22,8 +22,9 @@ describe Parelation::Applier do
       "offset" => "100"
     }
 
-    criteria = klass.new(Project.create.tickets, params).apply
-    ar_query = Project.create.tickets
+    project = Project.create
+    criteria = klass.new(project.tickets, params).apply
+    ar_query = project.tickets
       .select(:id, :name, :state, :message)
       .where(state: ["open", "pending"])
       .where.not(state: "closed")
