@@ -284,12 +284,11 @@ Submit a pull request.
 
 ### Author / License
 
-Copyright (c) 2015 Michael van Rooijen ( [@meskyanichi] )<br />
-Released under the MIT [License].
+Released under the [MIT License] by [Michael van Rooijen].
 
-[@meskyanichi]: https://twitter.com/meskyanichi
+[Michael van Rooijen]: https://twitter.com/meskyanichi
 [HireFire]: http://hirefire.io
 [Passing Specs]: https://travis-ci.org/meskyanichi/parelation
 [Code Climate Score]: https://codeclimate.com/github/meskyanichi/parelation
 [RubyDoc]: http://rubydoc.info/github/meskyanichi/parelation/master/frames
-[License]: https://github.com/meskyanichi/parelation/blob/master/LICENSE
+[MIT License]: https://github.com/meskyanichi/parelation/blob/master/LICENSE
