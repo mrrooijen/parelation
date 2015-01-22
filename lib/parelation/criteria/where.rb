@@ -22,7 +22,7 @@ class Parelation::Criteria::Where
       when "where_not"
         chain.where.not(field => value)
       when "where_gt", "where_gte", "where_lt", "where_lte"
-        DirectionalQueryApplier.new(param, criteria, chain).apply
+        DirectionalQueryApplier.new(chain, param, field, value).apply
       end
     end
   end

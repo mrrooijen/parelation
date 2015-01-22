@@ -9,34 +9,38 @@
       "where_lte" => "<="
     }
 
-    # @return [String]
-    #
-    attr_reader :operator
-
-    # @return [Hash]
-    #
-    attr_reader :criteria
-
     # @return [ActiveRecord::Relation]
     #
     attr_reader :chain
 
-    # @param operator [String] the named operator from the params
-    # @param criteria [Hash] the data to build query operations with
-    # @param chain [ActiveRecord::Relation] the chain to apply to
+    # @return [String]
     #
-    def initialize(operator, criteria, chain)
-      @operator = operator
-      @criteria = criteria
+    attr_reader :operator
+
+    # @return [String]
+    #
+    attr_reader :field
+
+    # @return [String]
+    #
+    attr_reader :value
+
+    # @param chain [ActiveRecord::Relation] the chain to apply to
+    # @param operator [String] the named operator from the params
+    # @param field [String] the field to query on
+    # @param value [String] the value of the query
+    #
+    def initialize(chain, operator, field, value)
       @chain = chain
+      @operator = operator
+      @field = field
+      @value = value
     end
 
     # @return [ActiveRecord::Relation] the chain with newly applied operations
     #
     def apply
-      criteria.inject(chain) do |chain, (key, value)|
-        chain.where(sql, key, value)
-      end
+      chain.where(sql, field, value)
     end
 
     private
