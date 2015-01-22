@@ -14,7 +14,7 @@ module Parelation::Criteria
 
   # @param chain [ActiveRecord::Relation]
   # @param param [String]
-  # @param value [String, Symbol, Array, Hash]
+  # @param value [String, Array, Hash]
   #
   def initialize(chain, param, value)
     @chain = chain
