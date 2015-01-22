@@ -3,7 +3,7 @@ module Parelation
     require "parelation/errors/parameter"
   end
 
-  module Criteria
+  class Criteria
     require "parelation/criteria/select"
     require "parelation/criteria/limit"
     require "parelation/criteria/offset"

@@ -1,5 +1,4 @@
-class Parelation::Criteria::Where
-  include Parelation::Criteria
+class Parelation::Criteria::Where < Parelation::Criteria
 
   require_relative "where/caster"
   require_relative "where/directional_query_applier"

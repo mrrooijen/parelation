@@ -1,4 +1,4 @@
-module Parelation::Criteria
+class Parelation::Criteria
 
   # @return [ActiveRecord::Relation] the current criteria chain
   #

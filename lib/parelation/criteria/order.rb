@@ -1,5 +1,4 @@
-class Parelation::Criteria::Order
-  include Parelation::Criteria
+class Parelation::Criteria::Order < Parelation::Criteria
 
   require_relative "order/object"
 

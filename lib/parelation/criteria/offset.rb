@@ -1,5 +1,4 @@
-class Parelation::Criteria::Offset
-  include Parelation::Criteria
+class Parelation::Criteria::Offset < Parelation::Criteria
 
   # @param param [String]
   # @return [TrueClass, FalseClass]

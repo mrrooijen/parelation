@@ -1,5 +1,4 @@
-class Parelation::Criteria::Limit
-  include Parelation::Criteria
+class Parelation::Criteria::Limit < Parelation::Criteria
 
   # @param param [String]
   # @return [TrueClass, FalseClass]
