@@ -29,6 +29,8 @@ class Parelation::Criteria::Order < Parelation::Criteria
   #   array of attributes to order.
   #
   def orders
-    @orders ||= [value].flatten.map { |order| Object.new(order) }
+    @orders ||= [value].flatten.map do |order|
+      Object.new(order)
+    end
   end
 end
