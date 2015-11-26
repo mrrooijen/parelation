@@ -2,11 +2,15 @@ class Parelation::Criteria::Order < Parelation::Criteria
 
   require_relative "order/object"
 
+  # @return [Regexp] The order format.
+  #
+  ORDER_FORMAT = /^order$/
+
   # @param param [String]
   # @return [TrueClass, FalseClass]
   #
   def self.match?(param)
-    !!(param =~ /^order$/)
+    !!param.match(ORDER_FORMAT)
   end
 
   # Applies the specified orderings to {#chain}.
