@@ -9,7 +9,7 @@ class Parelation::Applier
     Parelation::Criteria::Offset,
     Parelation::Criteria::Order,
     Parelation::Criteria::Query,
-    Parelation::Criteria::Where
+    Parelation::Criteria::Where,
   ]
 
   # @return [ActiveRecord::Relation]
