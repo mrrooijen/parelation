@@ -14,14 +14,6 @@ class Parelation::Criteria::Limit < Parelation::Criteria
   # @return [ActiveRecord::Relation]
   #
   def call
-    chain.limit(limit)
-  end
-
-  private
-
-  # Alias for {#value}.
-  #
-  def limit
-    value
+    chain.limit(value)
   end
 end

@@ -14,14 +14,6 @@ class Parelation::Criteria::Offset < Parelation::Criteria
   # @return [ActiveRecord::Relation]
   #
   def call
-    chain.offset(offset)
-  end
-
-  private
-
-  # Alias for {#value}.
-  #
-  def offset
-    value
+    chain.offset(value)
   end
 end

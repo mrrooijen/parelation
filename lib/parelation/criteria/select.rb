@@ -14,14 +14,6 @@ class Parelation::Criteria::Select < Parelation::Criteria
   # @return [ActiveRecord::Relation]
   #
   def call
-    chain.select(*attributes)
-  end
-
-  private
-
-  # Alias for {#value}.
-  #
-  def attributes
-    value
+    chain.select(*value)
   end
 end
