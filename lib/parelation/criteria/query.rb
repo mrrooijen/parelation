@@ -1,10 +1,14 @@
 class Parelation::Criteria::Query < Parelation::Criteria
 
+  # @return [Regexp] the query format.
+  #
+  QUERY_FORMAT = /^query$/
+
   # @param param [String]
   # @return [TrueClass, FalseClass]
   #
   def self.match?(param)
-    !!(param =~ /^query$/)
+    !!param.match(QUERY_FORMAT)
   end
 
   # @return [ActiveRecord::Relation]

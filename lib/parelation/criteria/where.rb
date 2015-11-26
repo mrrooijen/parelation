@@ -4,11 +4,15 @@ class Parelation::Criteria::Where < Parelation::Criteria
   require_relative "where/directional_query_applier"
   require_relative "where/criteria_builder"
 
+  # @return [Regexp] the "where" format.
+  #
+  WHERE_FORMAT = /^(where|where_(not|gt|gte|lt|lte))$/
+
   # @param param [String]
   # @return [true, false]
   #
   def self.match?(param)
-    !!(param =~ /^(where|where_(not|gt|gte|lt|lte))$/)
+    !!param.match(WHERE_FORMAT)
   end
 
   # @return [ActiveRecord::Relation]

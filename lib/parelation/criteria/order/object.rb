@@ -1,5 +1,13 @@
 class Parelation::Criteria::Order::Object
 
+  # @return [Hash] the possible directions (asc, desc)
+  #   for database queries.
+  #
+  DIRECTIONS = {
+    "asc" => :asc,
+    "desc" => :desc,
+  }
+
   # @return [String]
   #
   attr_reader :order
@@ -28,14 +36,10 @@ class Parelation::Criteria::Order::Object
   end
 
   # @return [Symbol, nil] the direction to order {#field},
-  #   eiter :asc or :desc.
+  #   either :asc or :desc.
   #
   def direction
-    case parts.last
-    when "asc" then :asc
-    when "desc" then :desc
-    else nil
-    end
+    DIRECTIONS[parts.last]
   end
 
   # @return [Array<String, nil>] the criteria chunks (separated by +:+).
