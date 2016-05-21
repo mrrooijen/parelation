@@ -1,8 +1,8 @@
 # Parelation
 
 [![Gem Version](https://badge.fury.io/rb/parelation.svg)](http://badge.fury.io/rb/parelation)
-[![Code Climate](https://codeclimate.com/github/meskyanichi/parelation.png)](https://codeclimate.com/github/meskyanichi/parelation)
-[![Build Status](https://travis-ci.org/meskyanichi/parelation.svg)](https://travis-ci.org/meskyanichi/parelation)
+[![Code Climate](https://codeclimate.com/github/mrrooijen/parelation.png)](https://codeclimate.com/github/mrrooijen/parelation)
+[![Build Status](https://travis-ci.org/mrrooijen/parelation.svg)](https://travis-ci.org/mrrooijen/parelation)
 
 Parelation, for Rails/ActiveRecord 4.1.0+, allows you to query your ActiveRecord-mapped database easily, securely and quite flexibly using simple GET requests. It's used in your controller layer where it uses HTTP GET parameters to build on the ActiveRecord::Relation chain. This provides the client-side with the out-of-the-box flexibility to perform fairly dynamic queries without having to write boilerplate on the server.
 
@@ -286,9 +286,9 @@ Submit a pull request.
 
 Released under the [MIT License] by [Michael van Rooijen].
 
-[Michael van Rooijen]: https://twitter.com/meskyanichi
+[Michael van Rooijen]: https://twitter.com/mrrooijen
 [HireFire]: http://hirefire.io
-[Passing Specs]: https://travis-ci.org/meskyanichi/parelation
-[Code Climate Score]: https://codeclimate.com/github/meskyanichi/parelation
-[RubyDoc]: http://rubydoc.info/github/meskyanichi/parelation/master/frames
-[MIT License]: https://github.com/meskyanichi/parelation/blob/master/LICENSE
+[Passing Specs]: https://travis-ci.org/mrrooijen/parelation
+[Code Climate Score]: https://codeclimate.com/github/mrrooijen/parelation
+[RubyDoc]: http://rubydoc.info/github/mrrooijen/parelation/master/frames
+[MIT License]: https://github.com/mrrooijen/parelation/blob/master/LICENSE
