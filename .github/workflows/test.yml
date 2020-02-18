@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+          - 2.5
+          - 2.6
+          - 2.7
+        gemfile:
+          - .gemfiles/5.0.gemfile
+          - .gemfiles/5.1.gemfile
+          - .gemfiles/5.2.gemfile
+          - .gemfiles/6.0.gemfile
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Ruby ${{ matrix.ruby }}
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Install libsqlite3
+      run: |
+        sudo apt-get install libsqlite3-dev
+    - name: Run tests
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake
+      env:
+        BUNDLE_GEMFILE: ${{ matrix.gemfile }}
