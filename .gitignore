@@ -4,6 +4,7 @@
 .config
 .yardoc
 .DS_Store
+.gemfiles/*.lock
 Gemfile.lock
 InstalledFiles
 _yardoc

@@ -28,10 +28,10 @@ describe Parelation::Applier do
       .select(:id, :name, :state, :message)
       .where(state: ["open", "pending"])
       .where.not(state: "closed")
-      .where(%Q{"tickets".'created_at' > ?}, "2014-01-01 00:00:00.000000")
-      .where(%Q{"tickets".'updated_at' >= ?}, "2014-01-01 00:00:00.000000")
-      .where(%Q{"tickets".'created_at' < ?}, "2014-01-01 01:00:00.000000")
-      .where(%Q{"tickets".'updated_at' <= ?}, "2014-01-01 01:00:00.000000")
+      .where(%Q{"tickets".'created_at' > ?}, "2014-01-01 00:00:00")
+      .where(%Q{"tickets".'updated_at' >= ?}, "2014-01-01 00:00:00")
+      .where(%Q{"tickets".'created_at' < ?}, "2014-01-01 01:00:00")
+      .where(%Q{"tickets".'updated_at' <= ?}, "2014-01-01 01:00:00")
       .where(
          %Q{"tickets"."name" LIKE ? OR "tickets"."message" LIKE ?},
          "%ruby on rails%", "%ruby on rails%"

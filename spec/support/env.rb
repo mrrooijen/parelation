@@ -1,5 +1,4 @@
 require "pry"
-require "sqlite3"
 require "active_record"
 
 ROOT_PATH = File.expand_path("../../..", __FILE__)

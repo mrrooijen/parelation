@@ -16,13 +16,12 @@ Gem::Specification.new do |spec|
   spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "activerecord", ">= 4.1.0"
+  spec.add_dependency "activerecord", ">= 5.0.0", "< 6.1.0"
   spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rake", "~> 10.4.2"
-  spec.add_development_dependency "rspec", "~> 3.1.0"
-  spec.add_development_dependency "sqlite3", "~> 1.3.10"
-  spec.add_development_dependency "database_cleaner", "~> 1.4.0"
-  spec.add_development_dependency "pry", "~> 0.10.1"
-  spec.add_development_dependency "simplecov", "~> 0.9.1"
-  spec.add_development_dependency "yard", "~> 0.8.7.6"
+  spec.add_development_dependency "rake", "~> 13.0.0"
+  spec.add_development_dependency "rspec", "~> 3.9.0"
+  spec.add_development_dependency "database_cleaner", "~> 1.8.0"
+  spec.add_development_dependency "pry", "~> 0.12.0"
+  spec.add_development_dependency "simplecov", "~> 0.18.0"
+  spec.add_development_dependency "yard", "~> 0.9.0"
 end

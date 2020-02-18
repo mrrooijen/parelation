@@ -62,6 +62,6 @@ class Parelation::Criteria::Where::CriteriaBuilder
   #
   def cast(field, value)
     Parelation::Criteria::Where::Caster
-      .new(field, value, chain.arel_table.engine).cast
+      .new(field, value, chain.model).cast
   end
 end

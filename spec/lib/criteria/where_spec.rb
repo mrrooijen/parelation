@@ -61,7 +61,7 @@ describe Parelation::Criteria::Where do
     it "should add #{symbol} criteria to the chain" do
       criteria = klass.new(Ticket.all, operator, created_at: "2014-08-26T19:20:44Z").call
       ar_query = Ticket.where(
-        %Q{"tickets".'created_at' #{symbol} ?}, "2014-08-26 19:20:44.000000"
+        %Q{"tickets".'created_at' #{symbol} ?}, "2014-08-26 19:20:44"
       )
 
       expect(criteria.to_sql).to eq(ar_query.to_sql)
@@ -69,7 +69,7 @@ describe Parelation::Criteria::Where do
 
     it "should add multiple #{symbol} criteria to the chain" do
       criteria = klass.new(Ticket.all, operator, created_at: "2014-08-26T19:20:44Z", position: "5").call
-      ar_query = Ticket.where(%Q{"tickets".'created_at' #{symbol} ?}, "2014-08-26 19:20:44.000000")
+      ar_query = Ticket.where(%Q{"tickets".'created_at' #{symbol} ?}, "2014-08-26 19:20:44")
                        .where(%Q{"tickets".'position' #{symbol} ?}, 5)
 
       expect(criteria.to_sql).to eq(ar_query.to_sql)
@@ -149,7 +149,7 @@ describe Parelation::Criteria::Where do
 
     it "should cast a string to time" do
       criteria = klass.new(Ticket.all, "where", created_at: "2014-01-01T00:00:00Z").call
-      ar_query = Ticket.where(created_at: '2014-01-01 00:00:00.000000')
+      ar_query = Ticket.where(created_at: "2014-01-01 00:00:00")
 
       expect(criteria.to_sql).to eq(ar_query.to_sql)
     end
